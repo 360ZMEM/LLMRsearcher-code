@@ -1,6 +1,6 @@
 # LLMRsearcher-code
 
-[PDF]() [Website]()
+[ArXiv](https://arxiv.org/abs/2409.02428) [Website](https://360zmem.github.io/LLMRsearcher)
 
 <img src="README.assets/UNDER_CONSTRUCTION.png" style="zoom:80%;" />
 
