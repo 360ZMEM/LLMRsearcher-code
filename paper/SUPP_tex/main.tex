@@ -1737,13 +1737,13 @@ Therefore, for the output groups, the following search strategies are proposed:
 
 (DO NOT contain any numerical value of adjusted weights, only show the direction for adjusting)
 
-- Suggestion 1: This output only attempts mutation(adjustment) from the starting point and solely decreases the weight corresponding to requirement C (mutation). Due to significant overshadowing, a step size of 1/5x is chosen.
-- Suggestion 2: In addition to Suggestion 1, this output crosses the requirement to increase the weight of Demand A by 2.5 times (mutation + mutation&crossover). Since the adjustment range is hard to be determined, a mid-range step size of 2x is chosen.
-- Suggestion 3: This suggestion only takes a 1/2x step size for the weight of requirement C compared to the starting point, while crossing the adjustment already made in input group 3 to increase the weight of Demand B (mutation + crossover), without further increase.
-- Suggestion 4: This suggestion only further increasing the weight of requirement A (mutation). Due to the corresponding performance is far from satisfaction, a step size of 5x is chosen.
-- Suggestion 5: This suggestion only further increases the weight of requirement B (mutation). Due to severe non-compliance, a step size of 5x is chosen.
+- **Suggestion 1:** This output only attempts mutation(adjustment) from the starting point and solely decreases the weight corresponding to requirement C (mutation). Due to significant overshadowing, a step size of 1/5x is chosen.
+- **Suggestion 2:** In addition to Suggestion 1, this output crosses the requirement to increase the weight of Demand A by 2.5 times (mutation + mutation&crossover). Since the adjustment range is hard to be determined, a mid-range step size of 2x is chosen.
+- **Suggestion 3:** This suggestion only takes a 1/2x step size for the weight of requirement C compared to the starting point, while crossing the adjustment already made in input group 3 to increase the weight of Demand B (mutation + crossover), without further increase.
+- **Suggestion 4:** This suggestion only further increasing the weight of requirement A (mutation). Due to the corresponding performance is far from satisfaction, a step size of 5x is chosen.
+- **Suggestion 5:** This suggestion only further increases the weight of requirement B (mutation). Due to severe non-compliance, a step size of 5x is chosen.
 
-### Another Example
+## Another Shortened Example
 
 - Input Group 1 (Starting Point): Requirement A shows slight improvement, requirement B is moderately optimized but still falls short of the desired value, ...(analysis of other requirements).
 - Input Group 2: Compared to the starting point, the weight assigned to requirement A has been increased from `w_a=3` to `w_a=15`, resulting in full satisfaction for requirement A, but a decrease in performance for requirement B compared to the starting point.
@@ -1757,7 +1757,7 @@ Based on the above analysis, the reasons for some performances not being met in 
 
 Therefore, the following strategies are proposed for the outputs:
 
-Suggestion 1: A mid-point value may be chosen for the weight corresponding to requirement A, considering the weights from other Input Groups `w_a=3` and Input Group 2 `w_a=15`, with a 3x step size due to the 5x step size relative to the starting point in Input Group 2.
+**Suggestion 1:** A mid-point value may be chosen for the weight corresponding to requirement A, considering the weights from other Input Groups `w_a=3` and Input Group 2 `w_a=15`, with a 3x step size due to the 5x step size relative to the starting point in Input Group 2.
 (strategies for other output groups)
 
 
