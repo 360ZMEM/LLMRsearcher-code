@@ -1,4 +1,4 @@
-TLA_str = '''
+TLA_str = """
 We provide training logs for several reward functions, taken from a data-collection reinforcement learning (RL) task. To guide the user in further tuning the parameters of the reward function, you need to write a summary for each log showing the key message, based on user requirements detailed below.
 
 ## User requirements
@@ -14,4 +14,4 @@ There are multiple sets of weight parameters and the performance training logs t
 ## Performance result
 
 Here is the performance log you need to analyze, [HGH] means higher is better, while [LOW] means lower is better.
-''' # insert the result
+"""  # insert the result

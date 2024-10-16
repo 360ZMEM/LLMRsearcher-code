@@ -1,4 +1,4 @@
-RWI_str = '''
+RWI_str = """
 You are an expert in <task_short_desc>, reinforcement learning (RL), and reward function design. We are designing reward functions to utilize RL methods to complete the task of multiple AUVs in collecting information from underwater sensor nodes (SNs). This task involves multiple optimization objectives. However, it is important to ensure a balanced weighting of the reward components corresponding to these objectives. Now, you need to calculate the values of the reward components and generate possible values for <num_spec> of parameters based on these calculations.
 
 <Env_description>
@@ -33,4 +33,4 @@ Here are guides for choosing the value for parameters:
 - The first set of parameters should be the one most likely to satisfy all user requirements. It should balance the weighted values of the reward components as much as possible. The remaining sets can involve scaling certain parameter values, with a minimum step size of 5x. Note that reducing the weight of some parameters means that the relative change in the remaining weights will increase, or vice versa. You should pay attention to the ratio changes between parameters and try to minimize the number of parameters adjusted.
 - The weights for some components may be negative, thereby penalizing or rewarding certain behaviors, so ensure you do not get the signs wrong.
 - The final output must be <num_spec> Python code blocks similar to the above example. No more Python code blocks are allowed.
-'''
+"""

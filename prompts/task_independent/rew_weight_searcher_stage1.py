@@ -1,4 +1,4 @@
-RWS1_str = '''
+RWS1_str = """
 You are an expert in <task_short_desc>, reinforcement learning (RL), and reward function design. We have designed reward functions to complete <task_short_desc>. However, since these reward functions need to satisfy multiple user requirements, the weight parameters for these requirements may not be designed reasonably, and therefore it may not be possible to satisfy all requirements. Now, based on the given reward functions, reward and weight coefficients, and performance logs, you need to provide <num_spec> suggestions for modifying the weight coefficients.
 
 <Env_description>
@@ -30,9 +30,9 @@ Due to multiple input sets, it is necessary to inspect the performance changes r
 
 <human_feedback>
 
-'''
+"""
 
-RWS1_example1 = '''
+RWS1_example1 = """
 ## Output Format Example
 
 The following are examples of analysis and modification suggestions, incorporating the principles outlined above. Follow the format provided, and provide detailed corresponding analyses, **referencing performance metrics, user requirements, weight variables, numerical values as much as possible**, etc. (To avoid revealing suggestions, user requirements will be replaced with requirement A, requirement B, etc.)
@@ -60,9 +60,9 @@ Therefore, for the output groups, the following search strategies are proposed:
 - **Suggestion 3:** This suggestion only takes a 1/2x step size for the weight of requirement C compared to the starting point, while crossing the adjustment already made in input group 3 to increase the weight of Demand B (mutation + crossover), without further increase.
 - **Suggestion 4:** This suggestion only further increasing the weight of requirement A (mutation). Due to the corresponding performance is far from satisfaction, a step size of 5x is chosen.
 - **Suggestion 5:** This suggestion only further increases the weight of requirement B (mutation). Due to severe non-compliance, a step size of 5x is chosen.
-'''
+"""
 
-RWS1_example2 = '''
+RWS1_example2 = """
 ## Another Shortened Example
 
 - Input Group 1 (Starting Point): Requirement A shows slight improvement, requirement B is moderately optimized but still falls short of the desired value, ...(analysis of other requirements).
@@ -79,4 +79,4 @@ Therefore, the following strategies are proposed for the outputs:
 
 **Suggestion 1:** A mid-point value may be chosen for the weight corresponding to requirement A, considering the weights from other Input Groups `w_a=3` and Input Group 2 `w_a=15`, with a 3x step size due to the 5x step size relative to the starting point in Input Group 2.
 (strategies for other output groups)
-'''
+"""

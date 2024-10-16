@@ -1,4 +1,4 @@
-env_wo_desc_prompt = '''
+env_wo_desc_prompt = """
 ## Task Overview
 
 Key code of the environment in python are provided here, followed by a short description of the task.
@@ -60,9 +60,9 @@ class Env:
 ```
 
 Description in Natural Language: `self.N_AUV` AUVs are deployed in an area measuring `self.border[0]` × `self.border[1]`. Each AUV must respond to data transfer requests from its corresponding target SN and navigate to the target device to prevent data overflow of SNs. After establishing a connection with an SN, the AUV will proceed to serve the next SN.
-'''
+"""
 
-obj_desc_prompt = '''
+obj_desc_prompt = """
 ## Objectives of the task
 
 Here are the main objectives to be optimized for the task: Safety requirements must be met first, followed by meeting performance requirements, and then optimizing energy consumption.
@@ -72,8 +72,8 @@ Here are the main objectives to be optimized for the task: Safety requirements m
 (Performance requirements) The number of data overflows **should be reduced to zero as much as possible**. This can be achieved by **responding promptly** to SNs and **increasing** the number of served SNs.
 
 (Performance objective) The energy consumption of AUVs may be optimized (lower is better) without violating the **aforementioned** requirements.
-'''
+"""
 
-desc_short_name = 'underwater information collection task'
+desc_short_name = "underwater information collection task"
 
 env_desc_prompt = env_wo_desc_prompt + obj_desc_prompt
