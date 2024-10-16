@@ -6,6 +6,8 @@
 
 This repository contains langchain🦜️🔗 0.3 implementation code for paper [LLMs as Efficient Reward Function Searchers for Custom-Environment MORL](https://360zmem.github.io/LLMRsearcher). 
 
+Please feel free to contact [@360ZMEM](mailto:gwxie360@outlook.com) and [@2870325142](mailto:gwxie360@outlook.com) if you encounter any issue.
+
 <img src="paper/llmrsearcher.png" alt="llmrsearcher" style="zoom: 33%;" />
 
 ## Get Started
