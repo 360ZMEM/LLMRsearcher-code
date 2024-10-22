@@ -2,11 +2,17 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2409.02428-b31b1b.svg)](https://arxiv.org/abs/2409.02428)  [![WebSite](https://img.shields.io/badge/GitHub_Page-Supp_Material-77DDFF.svg)](https://360zmem.github.io/LLMRsearcher) [![WebSite](https://img.shields.io/github/last-commit/360ZMEM/LLMRsearcher-code?color=green)](https://360zmem.github.io/LLMRsearcher)
 
-⚠ This repository is currently under construction and the scripts are not executable. At present, this repository is only used to show the code framework. We guarantee that the code will be fully available by 2024.10.31 AOE.
+⚠ We are testing the code repository. Until then, the code may not work properly. Also, you can find our simplified Python implementation of underwater information collection task under the `RL_task` folder in the code repository. Please feel free to contact [@360ZMEM](mailto:gwxie360@outlook.com)(Guanwen Xie) if you encounter any issue.
+
+- Oct 22, 2024 - We update the full python code.
+- Oct 16, 2024 - We released our early-version code.
+- Sep 21, 2024 - The GitHub page and supplementary material [![WebSite](https://img.shields.io/badge/GitHub_Page-Supp_Material-77DDFF.svg)](https://360zmem.github.io/LLMRsearcher) of LLMRsearcher is available.
+
+---
+
+This repository is currently under construction and the scripts are not executable. At present, this repository is only used to show the code framework. We guarantee that the code will be fully available by 2024.10.31 AOE.
 
 This repository contains langchain🦜️🔗 0.3 implementation code for paper [LLMs as Efficient Reward Function Searchers for Custom-Environment MORL](https://360zmem.github.io/LLMRsearcher). 
-
-Please feel free to contact [@360ZMEM](mailto:gwxie360@outlook.com) and [@2870325142](mailto:xjzh23@mails.tsinghua.edu.cn) if you encounter any issue.
 
 <img src="paper/llmrsearcher.png" alt="llmrsearcher" style="zoom: 33%;" />
 

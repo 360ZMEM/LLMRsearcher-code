@@ -4,7 +4,7 @@ import os
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
 from prompts.task_relative.env_description import obj_desc_prompt
-from prompts.task_independent.training_log_analyzer import TLA_str
+from prompts.task_independent.training_log_analyzer import TLA_str, TLA_str_example
 from langchain_core.messages import HumanMessage
 from utils import replace_code_block, load_LLM_chain, num2numspec, separate_delimiter
 import config  # all config
@@ -36,6 +36,7 @@ for i in range(K):
     train_log, _ = separate_delimiter(train_log)
     perf_str += train_log.rstrip() + "\n"
 TLA_str.replace("<weights_and_pref_res>", perf_str)
+TLA_str += TLA_str_example
 chain = load_LLM_chain(config)
 try_time = 1
 print(f"Training Log Analyzer ITER {ITER} - Start querying ...")

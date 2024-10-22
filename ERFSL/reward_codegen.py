@@ -4,7 +4,7 @@ import os
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
 from prompts.task_relative.env_description import env_wo_desc_prompt
-from prompts.task_relative.task_objective import desc_dict, objectives
+from prompts.task_relative.task_objective import desc_dict, objectives, desc_short_text
 from prompts.task_independent.rew_codegen import rew_codegen
 from langchain_core.messages import HumanMessage
 from utils import replace_code_block, load_LLM_chain, num2numspec
@@ -14,7 +14,7 @@ import time
 
 # substitude, only env desc
 rew_codegen = rew_codegen.replace("<Env_desc_wo_obj>", env_wo_desc_prompt).replace(
-    "<objectives>", repr(desc_dict)
+    "<objectives>", repr(desc_dict).replace("<desc_short_text>", desc_short_text)
 )
 chain = load_LLM_chain(config)
 # in main loop, we should extract all components

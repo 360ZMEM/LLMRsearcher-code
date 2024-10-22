@@ -79,7 +79,7 @@ while True:
                 "python",
                 f"{config.ERFSL_DIR}/run_train.py",
                 "--train_components",
-                "train_comp_idx",
+                "--train_comp_idx",
                 str(now_obj_index_list[i * K, (i + 1) * K]),
             ]
             + config.arguments

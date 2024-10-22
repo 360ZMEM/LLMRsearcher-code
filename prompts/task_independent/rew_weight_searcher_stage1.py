@@ -1,5 +1,5 @@
 RWS1_str = """
-You are an expert in <task_short_desc>, reinforcement learning (RL), and reward function design. We have designed reward functions to complete <task_short_desc>. However, since these reward functions need to satisfy multiple user requirements, the weight parameters for these requirements may not be designed reasonably, and therefore it may not be possible to satisfy all requirements. Now, based on the given reward functions, reward and weight coefficients, and performance logs, you need to provide <num_spec> suggestions for modifying the weight coefficients.
+You are an expert in <task_name>, reinforcement learning (RL), and reward function design. We have designed reward functions to complete <desc_short_text>. However, since these reward functions need to satisfy multiple user requirements, the weight parameters for these requirements may not be designed reasonably, and therefore it may not be possible to satisfy all requirements. Now, based on the given reward functions, reward and weight coefficients, and performance logs, you need to provide <num_spec> suggestions for modifying the weight coefficients.
 
 <Env_description>
 

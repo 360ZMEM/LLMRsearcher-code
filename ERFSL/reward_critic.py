@@ -5,7 +5,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
 from prompts.task_relative.env_description import env_wo_desc_prompt
 from prompts.task_relative.task_objective import objectives, desc_dict
-from prompts.task_independent.rew_critic import rew_critic
+from prompts.task_independent.rew_critic import rew_critic, rew_critic_example
 from Reward_gen.reward_comps.reward_comp_code import reward_comp_code
 from Reward_gen.reward_comps.reward_comp_weight import reward_comp_weight
 from langchain_core.messages import HumanMessage
@@ -33,6 +33,7 @@ pattern_python = r"\```python\n(.+?)\n```"
 # match code block
 matches = re.findall(pattern_python, rcc_report_str, re.DOTALL)
 rew_critic = rew_critic.replace("<run_result>", matches[0])
+rew_critic += rew_critic_example
 chain = load_LLM_chain(config)
 # in main loop, we should extract all components
 print(f"Reward Critic ITER{ITER} - Start querying ...")

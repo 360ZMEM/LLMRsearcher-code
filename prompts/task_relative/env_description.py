@@ -74,6 +74,10 @@ Here are the main objectives to be optimized for the task: Safety requirements m
 (Performance objective) The energy consumption of AUVs may be optimized (lower is better) without violating the **aforementioned** requirements.
 """
 
-desc_short_name = "underwater information collection task"
+task_name = "underwater information collection task"
+
+desc_short_text = (
+    "multiple AUVs in collecting information from underwater sensor nodes (SNs)"
+)
 
 env_desc_prompt = env_wo_desc_prompt + obj_desc_prompt

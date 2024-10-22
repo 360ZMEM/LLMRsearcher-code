@@ -1,5 +1,5 @@
 RWI_str = """
-You are an expert in <task_short_desc>, reinforcement learning (RL), and reward function design. We are designing reward functions to utilize RL methods to complete the task of multiple AUVs in collecting information from underwater sensor nodes (SNs). This task involves multiple optimization objectives. However, it is important to ensure a balanced weighting of the reward components corresponding to these objectives. Now, you need to calculate the values of the reward components and generate possible values for <num_spec> of parameters based on these calculations.
+You are an expert in <task_name>, reinforcement learning (RL), and reward function design. We are designing reward functions to utilize RL methods to complete the task of <desc_short_text>. This task involves multiple optimization objectives. However, it is important to ensure a balanced weighting of the reward components corresponding to these objectives. Now, you need to calculate the values of the reward components and generate possible values for <num_spec> of parameters based on these calculations.
 
 <Env_description>
 

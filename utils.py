@@ -57,7 +57,9 @@ def generate_reward_function(weight, code, objectives, reward_critic=True):
     for obj in objectives:
         for idx, weight_str in enumerate(weight[obj]):
             weight_str = (
-                (weight_str.split("=") + ";") if reward_critic == False else weight_str
+                (weight_str.split("=")[0] + ";")
+                if reward_critic == False
+                else weight_str
             )
             comment_str = (
                 "# " + "weight "
@@ -69,6 +71,7 @@ def generate_reward_function(weight, code, objectives, reward_critic=True):
             weight_str = " " * 4 + weight_str + comment_str + "\n"
             weight_fin_str += weight_str
         for idx, code_str in enumerate(code[obj]):
+            # No extra comment
             code_fin_str += code_str.rstrip() + "\n"
     reward_func_str += (
         (weight_fin_str) + "    # --------- Code ---------\n" + code_fin_str

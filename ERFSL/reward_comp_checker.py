@@ -6,7 +6,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
 from prompts.task_relative.env_description import env_wo_desc_prompt
 from prompts.task_relative.task_objective import objectives, desc_dict, obj_log_dict
-from prompts.task_independent.rew_comp_checker import RCC_str
+from prompts.task_independent.rew_comp_checker import RCC_str, RCC_str_example
 from langchain_core.messages import HumanMessage
 from utils import replace_code_block, load_LLM_chain, num2numspec, separate_delimiter
 import config  # all config
@@ -31,6 +31,7 @@ for req_no in REQ_NO:
     for match in matches:
         fin_perf_str += match.rstrip() + "\n"
 RCC_str = RCC_str.replace("<comp_perf>", fin_perf_str)
+RCC_str += RCC_str_example
 chain = load_LLM_chain(config)
 try_time = 1
 print(f"Reward Component Checker ITER{ITER} - Start querying ...")

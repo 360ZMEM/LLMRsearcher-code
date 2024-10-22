@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
-from prompts.task_relative.env_description import obj_desc_prompt, desc_short_name
+from prompts.task_relative.env_description import obj_desc_prompt, task_name
 from prompts.task_independent.rew_weight_searcher_stage2 import RWS2_str, RWS2_example
 from langchain_core.messages import HumanMessage
 from utils import replace_code_block, load_LLM_chain, num2numspec
@@ -25,7 +25,7 @@ with open(
     reward_func = f.read()
 
 RWS2_str = RWS2_str.replace("<obj_description>", obj_desc_prompt).replace(
-    "<task_short_desc>", desc_short_name
+    "<task_name>", task_name
 )
 # add weights & suggestions
 weight_str = ""

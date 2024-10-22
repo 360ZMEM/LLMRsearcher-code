@@ -3,7 +3,11 @@ import os
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
-from prompts.task_relative.env_description import env_desc_prompt, desc_short_name
+from prompts.task_relative.env_description import (
+    env_desc_prompt,
+    task_name,
+    desc_short_text,
+)
 from prompts.task_independent.rew_weight_searcher_stage1 import (
     RWS1_str,
     RWS1_example1,
@@ -36,7 +40,8 @@ RWS1_str = (
     .replace("<Env description>", env_desc_prompt)
     .replace("<rew_function>", reward_func)
     .replace("<human_feedback>,args.human_feedback")
-    .replace("<task_short_desc>", desc_short_name)
+    .replace("<task_name>", task_name)
+    .replace("<desc_short_text>", desc_short_text)
 )
 # generate weight groups and perf summary, delimiter
 fin_result_str = ""

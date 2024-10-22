@@ -3,7 +3,11 @@ import os
 
 BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
-from prompts.task_relative.env_description import env_desc_prompt, desc_short_name
+from prompts.task_relative.env_description import (
+    env_desc_prompt,
+    task_name,
+    desc_short_text,
+)
 from prompts.task_independent.rew_weight_initializer import RWI_str
 from langchain_core.messages import HumanMessage
 from utils import replace_code_block, load_LLM_chain, num2numspec
@@ -24,7 +28,8 @@ RWI_str = (
     RWI_str.replace("<num_spec>", num_desc)
     .replace("<Env_description>", env_desc_prompt)
     .replace("<rew_function>", reward_func)
-    .replace("<task_short_desc>", desc_short_name)
+    .replace("<task_name>", task_name)
+    .replace("<desc_short_text>", desc_short_text)
 )
 # then query OpenAI API
 
