@@ -10,8 +10,6 @@
 
 ---
 
-This repository is currently under construction and the scripts are not executable. At present, this repository is only used to show the code framework. We guarantee that the code will be fully available by 2024.10.31 AOE.
-
 This repository contains langchain🦜️🔗 0.3 implementation code for paper [LLMs as Efficient Reward Function Searchers for Custom-Environment MORL](https://360zmem.github.io/LLMRsearcher). 
 
 <img src="paper/llmrsearcher.png" alt="llmrsearcher" style="zoom: 33%;" />
