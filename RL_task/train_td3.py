@@ -236,26 +236,26 @@ def train():
                 print_FX_std.append(
                     round(np.std(np.array(FX_log[i * s : (i + 1) * s])), 3)
                 )
-            print(f"[HGH]AVG reward: {print_reward_mean}")
-            print(f"[LOW]STD reward: {print_reward_std}")
-            print(f"[HGH]AVG of total served SNs: {print_idu_mean}")
-            print(f"[LOW]STD of total served SNs: {print_idu_std}")
-            print(f"[LOW]AVG num of data overflow: {print_ndo_mean}")
-            print(f"[LOW]STD num of data overflow: {print_ndo_std}")
-            print(f"[LOW]AVG num of collision: {print_crash_mean}")
-            print(f"[LOW]STD num of collision: {print_crash_std}")
-            print(f"[LOW]AVG num of crossing the border: {print_FX_mean}")
-            print(f"[LOW]STD num of crossing the border: {print_FX_std}")
-            print(f"[LOW]AVG of energy consumption: {print_ec_mean}")
-            print(f"[LOW]STD of energy consumption: {print_ec_std}")
+            fin_print_str = (f"[HGH]AVG reward: {print_reward_mean}\n" + 
+            f"[LOW]STD reward: {print_reward_std}\n" + 
+            f"[HGH]AVG of total served SNs: {print_idu_mean}\n" + 
+            f"[LOW]STD of total served SNs: {print_idu_std}\n" + 
+            f"[LOW]AVG num of data overflow: {print_ndo_mean}\n" + 
+            f"[LOW]STD num of data overflow: {print_ndo_std}\n" + 
+            f"[LOW]AVG num of collision: {print_crash_mean}\n" + 
+            f"[LOW]STD num of collision: {print_crash_std}\n" + 
+            f"[LOW]AVG num of crossing the border: {print_FX_mean}\n" + 
+            f"[LOW]STD num of crossing the border: {print_FX_std}\n" + 
+            f"[LOW]AVG of energy consumption: {print_ec_mean}\n" + 
+            f"[LOW]STD of energy consumption: {print_ec_std}\n")
             print("\n--------\n")
             # condensed summary
             print_crash_str = f"(num of collisions) [init]{round(print_crash_mean[0],2)} [init STD]{round(print_crash_std[0],2)} [best]{round(np.min(np.array(print_crash_mean)),2)} [final]{round(print_crash_mean[-1],2)} [final STD]{round(print_crash_std[-1],2)}"
             print_FX_str = f"(num of crossing the border) [init]{round(print_FX_mean[0],2)} [init STD]{round(print_FX_std[0],2)} [best]{round(np.min(np.array(print_FX_mean)),2)} [final]{round(print_FX_mean[-1],2)} [final STD]{round(print_FX_std[-1],2)}"
             print_NDO_str = f"(num of data overflow) [init]{round(print_ndo_mean[0],2)} [init STD]{round(print_ndo_std[0],2)} [best]{round(np.min(np.array(print_ndo_mean)),2)} [final]{round(print_ndo_mean[-1],2)} [final STD]{round(print_ndo_std[-1],2)}"
             print_idu_str = f"(num of served SNs) [init]{round(print_idu_mean[0],2)} [init STD]{round(print_idu_std[0],2)} [best]{round(np.max(np.array(print_idu_mean)),2)} [final]{round(print_idu_mean[-1],2)} [final STD]{round(print_idu_std[-1],2)}"
-            print_ec_str = f"(energy consumption [init]{round(print_ec_mean[0],2)} [init STD]{round(print_ec_std[0],2)} [best]{round(np.min(np.array(print_ec_mean)),2)} [final]{round(print_ec_mean[-1],2)} [final STD]{round(print_ec_std[-1],2)}"
-            fin_print_str = (
+            print_ec_str = f"(energy consumption) [init]{round(print_ec_mean[0],2)} [init STD]{round(print_ec_std[0],2)} [best]{round(np.min(np.array(print_ec_mean)),2)} [final]{round(print_ec_mean[-1],2)} [final STD]{round(print_ec_std[-1],2)}"
+            fin_print_str += (
                 print_crash_str
                 + "\n"
                 + print_FX_str

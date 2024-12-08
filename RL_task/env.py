@@ -190,7 +190,7 @@ class Env(object):
             self.SoPcenter[:, 0] = self.SoPcenter[:, 0] * (self.X_max) / 120
             self.SoPcenter[:, 1] = self.SoPcenter[:, 1] * (self.Y_max) / 120
             self.lda = pickle.load(
-                open(RL_BASE_DIR + f"/env_arrangement/lda{self.rand_no}.pkl", "rb")
+                open(RL_BASE_DIR + f"/env_arrangement/lda_{self.rand_no}.pkl", "rb")
             )[: self.N_POI]
         # assign target SNs
         self.Q = np.array(

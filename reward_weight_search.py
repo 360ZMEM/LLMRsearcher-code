@@ -19,7 +19,7 @@ parser.add_argument(
     help="Specify this to not present the performance summary.",
 )
 parser.add_argument("--time_limit", type=int, default=300)
-args, unknown_args = parser.parse_known_args()
+args_global, unknown_args = parser.parse_known_args()
 K = config.K
 
 # first check the process
@@ -32,9 +32,9 @@ while True:
     ITER_GO += 1
 
 # Also, we check if the corresponding log file exists
-if (ITER_GO == 0) or (args.restart):
+if (ITER_GO == 0) or (args_global.restart):
     # call the reward weight initializer
-    args = ["python", f"{config.ERFSL_DIR}/rew_weight_initializer.py"]
+    args = ["python", f"{config.ERFSL_DIR}/reward_weight_initializer.py"]
     RWI_proc = subprocess.Popen(args)  # we don't specify STDOUT
     RWI_proc.wait()
     ITER_GO = 1
@@ -79,7 +79,7 @@ while True:
     print(
         f"Training ITER{ITER_GO} OK. Do you want to input feedback? If yes, input Y and enter. If no, directly press enter or input any other words.\n"
     )
-    ret_str = dynamic_waiting_input()
+    ret_str = dynamic_waiting_input(args_global.time_limit)
     if ret_str.lower().strip() not in ["y", "yes"]:
         feedback_str = "<Empty>"
     else:

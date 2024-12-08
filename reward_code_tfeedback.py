@@ -17,7 +17,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--restart", action="store_true")
 parser.add_argument("--human_mod", action="store_true")
 parser.add_argument("--time_limit", type=int, default=300)
-args, unknown_args = parser.parse_known_args()
+args_global, unknown_args = parser.parse_known_args()
 K = config.K
 code_delimiter = ["# ------ PARAMETERS ------\n", "# --------- Code ---------\n"]
 ITER_GO = 0
@@ -31,7 +31,7 @@ while True:
     if len(matching_files) == 0:
         break
     ITER_GO += 1
-if (ITER_GO == 0) or (args.restart):
+if (ITER_GO == 0) or (args_global.restart):
     # call the reward_codegen
     args = ["python", f"{config.ERFSL_DIR}/reward_codegen.py"]
     RCG_proc = subprocess.Popen(args)
@@ -42,15 +42,19 @@ while True:
     # we read all lines and we get the OK reward comps
     comp_ok_fname = config.REWARD_COMP_DIR + f"comp_ok.txt"
     reward_pass_no = []
-    with open(comp_ok_fname, "r") as f:
-        while True:
-            line = f.readline()
-            if line == "":
-                break
-            # then convert this line to str
-            reward_pass_no.append(int(line))
+    try:
+        with open(comp_ok_fname, "r") as f:
+            while True:
+                line = f.readline()
+                if line == "":
+                    break
+                # then convert this line to str
+                reward_pass_no.append(int(line))
+    except:
+        pass
     # end loop
-    if len(set(reward_pass_no)) == len(objectives):
+    reward_pass_no = list(set(reward_pass_no))
+    if len(reward_pass_no) == len(objectives):
         break
     now_obj_index_list = []  # record the components to be tested
     # Transform the dict code into specific code
@@ -71,7 +75,7 @@ while True:
         )
         with open(output_rew_fname, "w") as f:
             f.write(reward_func_str)
-    # if there are more than K components, we test the components separately(需要修改run_train.py)
+    # if there are more than K components, we test the components separately
     for i in range((len(now_obj_index_list) - 1) // K + 1):
         # run_train.py
         args = (
@@ -80,7 +84,7 @@ while True:
                 f"{config.ERFSL_DIR}/run_train.py",
                 "--train_components",
                 "--train_comp_idx",
-                str(now_obj_index_list[i * K, (i + 1) * K]),
+                str(now_obj_index_list[i * K: (i + 1) * K]),
             ]
             + config.arguments
             + unknown_args

@@ -5,7 +5,7 @@ import torch
 import multiprocessing
 import sys
 import time
-
+from langchain_core.messages import HumanMessage
 
 def num2numspec(num):  # e.g. input 5 output str '**5(five)**'
     inf_engine = inflect.engine()
@@ -50,7 +50,7 @@ def replace_code_block(original_text, new_text):
 
 
 def generate_reward_function(weight, code, objectives, reward_critic=True):
-    reward_func_str = "def compute_reward(self):\n    # ------ PARAMETERS ------\n"
+    reward_func_str = "import numpy as np\ndef compute_reward(self):\n    # ------ PARAMETERS ------\n"
     weight_fin_str = ""
     code_fin_str = ""
     objectives = [objectives] if (type(objectives) != list) else objectives
@@ -157,6 +157,9 @@ def load_LLM_chain(config):
             MessagesPlaceholder(variable_name="messages"),
         ]
     )
-
     chain = prompt | model
+    # connectivity check
+    print('Checking connectivity ....')
+    chain.invoke({"messages": [HumanMessage(content="Hello!")]})
+    print('√')
     return chain
