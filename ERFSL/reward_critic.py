@@ -5,6 +5,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(BASE_DIR)
 from prompts.task_relative.env_description import env_wo_desc_prompt
 from prompts.task_relative.task_objective import objectives, desc_dict
+from prompts.task_relative.env_description import desc_short_text, task_name
 from prompts.task_independent.rew_critic import rew_critic, rew_critic_example
 from Reward_gen.reward_comps.reward_comp_code import reward_comp_code
 from Reward_gen.reward_comps.reward_comp_weight import reward_comp_weight
@@ -14,6 +15,7 @@ import config  # all config
 import re
 import time
 import argparse
+import ast
 
 # ITER / Req. No
 parser = argparse.ArgumentParser()
@@ -25,6 +27,8 @@ rew_critic = (
     .replace("<objectives>", repr(desc_dict))
     .replace("<rew_comp_weight>", repr(reward_comp_weight))
     .replace("<rew_comp_code>", repr(reward_comp_code))
+    .replace("<task_short_desc>", desc_short_text)
+    .replace("<task_name>", task_name)
 )
 rcc_report_name = config.REPORT_GEN_DIR + f"/reward_comp_check_ITER{ITER}.md"
 with open(rcc_report_name, "r") as f:
@@ -43,14 +47,14 @@ while True:
     content = response.content
     matches = re.findall(pattern_python, content, re.DOTALL)
     illegal_match = False
-    for idx, match in enumerate(matches):
+    for idx, match in enumerate(matches[-2:]):
         try:
-            in_dict = dict(match)
-            if sorted(list(in_dict.keys())) != sorted(objectives):
+            in_dict = ast.literal_eval(match)
+            if (type(in_dict) != dict) or (not set(in_dict.keys()) >= set(objectives)):
                 raise ValueError
         except:
             illegal_match = True if idx != 0 else False
-    if len(matches) != 2 or illegal_match:
+    if illegal_match:
         print(
             f"The LLM-generated answer can not be normally matched. Retry time {try_time}."
         )

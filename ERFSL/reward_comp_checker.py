@@ -13,6 +13,7 @@ import config  # all config
 import re
 import time
 import argparse
+import ast
 
 # dynamic - index of requirement / ITER
 parser = argparse.ArgumentParser()
@@ -21,13 +22,15 @@ parser.add_argument("--req_no", type=str, default="")
 args, unknown = parser.parse_known_args()
 ITER = args.iter
 REQ_NO = list(args.req_no)
-RCC_str = RCC_str.replace("<obj_description>", repr(desc_dict))
+RCC_str = RCC_str.replace("<objectives>", repr(desc_dict))
 fin_perf_str = ""
+matches = []
 for req_no in REQ_NO:
-    with open(config.LOG_DIR, f"{config.log_prefix}_ITER{ITER}_COMP{REQ_NO}.txt") as f:
+    with open(config.LOG_DIR + f"{config.log_prefix}_ITER{ITER}_COMP{req_no}.txt", 'r') as f:
         perf_str = f.read()
-        pattern = r"^.*" + obj_log_dict[objectives[REQ_NO - 1]] + r".*$"
-        matches = re.findall(pattern, perf_str, re.MULTILINE)
+        for obj in obj_log_dict[objectives[req_no - 1]]:
+            pattern = r"^.*" + obj + r".*$"
+            matches += re.findall(pattern, perf_str, re.MULTILINE)
     for match in matches:
         fin_perf_str += match.rstrip() + "\n"
 RCC_str = RCC_str.replace("<comp_perf>", fin_perf_str)
@@ -44,10 +47,10 @@ while True:
     illegal_match = False
     final_dict = {}
     try:
-        final_dict = dict(matches[0])
+        final_dict = ast.literal_eval(matches[0])
     except:
         illegal_match = True
-    if len(matches) != 1 or illegal_match:
+    if (type(final_dict) != dict) or (len(matches) != 1 or illegal_match):
         print(
             f"The LLM-generated answer can not be normally matched. Retry time {try_time}."
         )
