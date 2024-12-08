@@ -80,7 +80,7 @@ ERFSL can also be deployed to your custom MORL environment and can effectively b
 ## Citation
 
 If you find it useful for your work please cite:
-```
+```bibtex
 @article{xie2024llmrsearcher,
       title={Large Language Models as Efficient Reward Function Searchers for Custom-Environment Multi-Objective Reinforcement Learning},
       author={Xie, Guanwen and Xu, Jingzehua and and Yang, Yiyuan and Ren, Yong and Ding, Yimian and Zhang, Shuai},
