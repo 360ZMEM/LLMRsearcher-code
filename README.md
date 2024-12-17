@@ -1,6 +1,6 @@
 # LLMRsearcher-code
 
-[![arXiv](https://img.shields.io/badge/arXiv-2409.02428-b31b1b.svg)](https://arxiv.org/abs/2409.02428)  [![WebSite](https://img.shields.io/badge/GitHub_Page-Supp_Material-77DDFF.svg)](https://360zmem.github.io/LLMRsearcher) [![WebSite](https://img.shields.io/github/last-commit/360ZMEM/LLMRsearcher-code?color=green)](https://360zmem.github.io/LLMRsearcher)
+[![arXiv](https://img.shields.io/badge/arXiv-2409.02428-b31b1b.svg)](https://arxiv.org/abs/2409.02428v2)  [![WebSite](https://img.shields.io/badge/GitHub_Page-Supp_Material-77DDFF.svg)](https://360zmem.github.io/LLMRsearcher) [![WebSite](https://img.shields.io/github/last-commit/360ZMEM/LLMRsearcher-code?color=green)](https://360zmem.github.io/LLMRsearcher)
 
 ⚠ We are testing the code repository. Until then, the code may not work properly. Also, you can find our simplified Python implementation of underwater information collection task under the `RL_task` folder in the code repository. Please feel free to contact [@360ZMEM](mailto:gwxie360@outlook.com)(Guanwen Xie) if you encounter any issue.
 
