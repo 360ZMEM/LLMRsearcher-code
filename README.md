@@ -1,7 +1,5 @@
 # LLMRsearcher-code
 
-[![arXiv](https://img.shields.io/badge/arXiv-2409.02428-b31b1b.svg)](https://arxiv.org/abs/2409.02428v2)  [![WebSite](https://img.shields.io/badge/GitHub_Page-Supp_Material-77DDFF.svg)](https://360zmem.github.io/LLMRsearcher) [![WebSite](https://img.shields.io/github/last-commit/360ZMEM/LLMRsearcher-code?color=green)](https://360zmem.github.io/LLMRsearcher)
-
 ⚠ We are testing the code repository. Until then, the code may not work properly. Also, you can find our simplified Python implementation of underwater information collection task under the `RL_task` folder in the code repository. Please feel free to contact [@360ZMEM](mailto:gwxie360@outlook.com)(Guanwen Xie) if you encounter any issue.
 
 - Oct 22, 2024 - We update the full python code.
@@ -77,17 +75,7 @@ python reward_weight_search.py --restart
 
 ERFSL can also be deployed to your custom MORL environment and can effectively benefit from human prior knowledge, although ERFSL also works well without prior knowledge. For more information, refer to the document [custom_guide.md](custom_guide.md).
 
-## Citation
 
-If you find it useful for your work please cite:
-```bibtex
-@article{xie2024llmrsearcher,
-      title={Large Language Models as Efficient Reward Function Searchers for Custom-Environment Multi-Objective Reinforcement Learning},
-      author={Xie, Guanwen and Xu, Jingzehua and and Yang, Yiyuan and Ren, Yong and Ding, Yimian and Zhang, Shuai},
-      journal={arXiv preprint arXiv:2409.02428},
-      year={2024}
-    }
-```
 
 
 
